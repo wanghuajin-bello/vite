@@ -1,9 +1,12 @@
 import { cac } from 'cac'
 import colors from 'picocolors'
+// ??记录性能的
 import { performance } from 'perf_hooks'
+// ??import type是啥
 import type { BuildOptions } from './build'
 import type { ServerOptions } from './server'
 import type { LogLevel } from './logger'
+// ？？想了解logger怎么管理
 import { createLogger } from './logger'
 import { resolveConfig } from '.'
 
@@ -29,6 +32,7 @@ interface GlobalCLIOptions {
 /**
  * removing global flags before passing as command specific sub-configs
  */
+// ！！Omit ts帮助类型,剔除部分属性
 function cleanOptions<Options extends GlobalCLIOptions>(
   options: Options
 ): Omit<Options, keyof GlobalCLIOptions> {
